@@ -6,6 +6,7 @@ from dash import html
 from dash.dependencies import Input, Output
 import pandas as pd
 import plotly.express as pexpr
+import zipfile
 
 ### Config reader 
 
@@ -16,7 +17,11 @@ def get_data_inbetween_date(dataframe, from_date, to_date):
 ###################
 
 #### Connect to database
+with zipfile.ZipFile("Monthly_count.zip","r") as zip_ref:
+    zip_ref.extractall("csv/")
 
+with zipfile.ZipFile("Sensor_location.zip","r") as zip_ref:
+    zip_ref.extractall("csv/")
 
 ## Get dataframe associate of each scenario
 location_info = pd.read_csv('csv/Pedestrian_Counting_System_-_Monthly__counts_per_hour_.csv')
