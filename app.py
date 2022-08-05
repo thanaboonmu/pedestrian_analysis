@@ -17,10 +17,10 @@ def get_data_inbetween_date(dataframe, from_date, to_date):
 ###################
 
 #### Connect to database
-with zipfile.ZipFile("Monthly_count.zip","r") as zip_ref:
+with zipfile.ZipFile("csv/Monthly_count.zip","r") as zip_ref:
     zip_ref.extractall("csv/")
 
-with zipfile.ZipFile("Sensor_location.zip","r") as zip_ref:
+with zipfile.ZipFile("csv/Sensor_location.zip","r") as zip_ref:
     zip_ref.extractall("csv/")
 
 ## Get dataframe associate of each scenario
