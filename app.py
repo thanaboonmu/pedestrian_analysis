@@ -93,7 +93,7 @@ for i in sorted(sensor_list):
         print(f'Data in sensor {i} is within the the lockdown period')
         continue
     change = (oldest_data['Hourly_Counts'].iloc[0]-latest_data['Hourly_Counts'].iloc[0])/oldest_data['Hourly_Counts'].iloc[0] * 100
-    data_sensor = {'sensor_id': i, 'Sensor_Name': latest_data['Sensor_Name'].iloc[0], 'oldest_date': oldest_data['month_year'].iloc[0], 'latest_date': latest_data['month_year'].iloc[0], 'Percentage_changes': change}
+    data_sensor = {'sensor_id': i, 'Sensor_Name': latest_data['Sensor_Name'].iloc[0], 'oldest_date': oldest_data['month_year'].iloc[0], 'latest_date': latest_data['month_year'].iloc[0], 'oldest_date_count': oldest_data['Hourly_Counts'].iloc[0], 'latest_date_count':latest_data['Hourly_Counts'].iloc[0],'Percentage_changes': change}
     rate_of_change_sensors.append(data_sensor)
 
 change_pandemic_df = pd.DataFrame.from_records(rate_of_change_sensors)
